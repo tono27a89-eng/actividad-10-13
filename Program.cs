@@ -12,13 +12,18 @@ namespace actividad_10_13
         static void Main(string[] args)
         {
             Console.WriteLine("ree un diccionario de notas y calcule el promedio general recorriéndolo con foreach.");
-            for (int i = 0; i < 3; i++)
+            Dictionary<string,double>notas = new Dictionary<string,double>();
+            string nombre;
+            double num;
+            Console.WriteLine("ingrese cuantas notas va ingresar");
+            int.TryParse(Console.ReadLine(), out int lim);
+            for (int i = 0; i < lim; i++)
             {
 
 
-                Console.WriteLine($"Ingrese  ID NO.{i + 1} de 3 productos");
-                int.TryParse(Console.ReadLine(), out clave);
-                if (producto.ContainsKey(clave))
+                Console.WriteLine($"Ingrese  nombre NO.{i + 1} de {lim} estudiantes");
+                nombre = Console.ReadLine();
+                if (notas.ContainsKey(nombre))
                 {
                     Console.WriteLine("valor ya ingresado ingrese otro");
                     i--;
@@ -26,14 +31,14 @@ namespace actividad_10_13
                 }
                 else
                 {
-                    Console.WriteLine("ingrese nombre:");
-                    nombre = Console.ReadLine();
-                    producto.Add(clave, nombre);
+                    Console.WriteLine("ingrese notas: ");
+                    double.TryParse(Console.ReadLine(), out num);
+                    notas.Add(nombre,num);
 
                 }
 
             }
-            foreach (var item in producto)
+            foreach (var item in notas)
             {
                 Console.WriteLine("prodcuto Id: " + item.Key + "valor: " + item.Value);
 
