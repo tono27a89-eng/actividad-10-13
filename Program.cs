@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace actividad_10_13
 {
@@ -15,6 +16,7 @@ namespace actividad_10_13
             Dictionary<string,double>notas = new Dictionary<string,double>();
             string nombre;
             double num;
+            double suma = 0 ;
             Console.WriteLine("ingrese cuantas notas va ingresar");
             int.TryParse(Console.ReadLine(), out int lim);
             for (int i = 0; i < lim; i++)
@@ -40,9 +42,10 @@ namespace actividad_10_13
             }
             foreach (var item in notas)
             {
-                Console.WriteLine("prodcuto Id: " + item.Key + "valor: " + item.Value);
+                suma += item.Value;
 
             }
+            Console.WriteLine($"el promedio de notas es: {suma/notas.Count}");
 
         }
     }
